@@ -2,7 +2,7 @@ pipeline {
     agent any
     
      environment { 
-        registry = "shashimls276/Assessment-ui"
+        registry = "shashimls276/eassessment-ui"
         registryCredential = 'dockerhub_id' 
         dockerImage = ''
         PROJECT_ID = 'geometric-vim-314208'
@@ -58,7 +58,7 @@ pipeline {
         
          stage('Deploy to GKE') {
             steps{
-                sh "sed -i 's/Assessment-ui:latest/Assessment-ui:${env.BUILD_ID}/g' deployment.yaml"
+                sh "sed -i 's/eassessment-ui:latest/eassessment-ui:${env.BUILD_ID}/g' deployment.yaml"
                 step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
             }
         }  

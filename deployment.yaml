@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Assessment-ui
+spec:
+  selector:
+    matchLabels:
+      app: Assessment-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: Assessment-ui
+        tier: Assessment-ui
+    spec:
+     containers:
+     - name: Assessment-ui
+       image: "shashimls276/Assessment-ui:latest"
+       ports:
+       - containerPort: 8080        
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: Assessment-ui
+  labels:
+    app: Assessment-ui
+spec:
+  selector:
+    app: Assessment-ui
+  ports:
+    - port: 80
+      targetPort: 8082
+  type: LoadBalancer

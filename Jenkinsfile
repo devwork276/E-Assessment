@@ -25,7 +25,7 @@ pipeline {
         
         stage('Code Checkout') {
             steps {
-                git 'https://github.com/devwork276/E-Assessment.git'
+                git 'https://github.com/devwork276/e-assessment.git'
             }
         }
         

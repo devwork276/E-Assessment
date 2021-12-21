@@ -5,7 +5,7 @@ pipeline {
         registry = "shashimls276/eassessment-ui"
         registryCredential = 'dockerhub_id' 
         dockerImage = ''
-        PROJECT_ID = 'geometric-vim-314208'
+        PROJECT_ID = 'mystic-airway-335416'
         CLUSTER_NAME = 'assessment-cluster'
         LOCATION = 'asia-south1-a'
         CREDENTIALS_ID = 'gke' 

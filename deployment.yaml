@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Assessment-ui
+  name: eassessmentui
 spec:
   selector:
     matchLabels:
-      app: Assessment-ui
+      app: eassessmentui
   replicas: 1
   template:
     metadata:
       labels:
-        app: Assessment-ui
-        tier: Assessment-ui
+        app: eassessmentui
+        tier: eassessmentui
     spec:
      containers:
-     - name: Assessment-ui
+     - name: eassessmentui
        image: "shashimls276/Assessment-ui:latest"
        ports:
        - containerPort: 8080        
@@ -23,12 +23,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: Assessment-ui
+  name: eassessmentui
   labels:
-    app: Assessment-ui
+    app: eassessmentui
 spec:
   selector:
-    app: Assessment-ui
+    app: eassessmentui
   ports:
     - port: 80
       targetPort: 8082
